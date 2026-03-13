@@ -6,28 +6,61 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Body background + padding for fixed navbar */
+/* Body background */
 body {
     min-height: 100vh;
     background: #0d0d0d;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 70px; /* navbar height */
+    padding-top: 70px;
+}
+
+/* ===================== ANIMATIONS ===================== */
+
+/* Login card appears smoothly */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Blue glow pulse */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(0,191,255,0.4),
+                    0 0 20px rgba(0,191,255,0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0,191,255,0.7),
+                    0 0 45px rgba(0,191,255,0.4);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0,191,255,0.4),
+                    0 0 20px rgba(0,191,255,0.2);
+    }
 }
 
 /* ===================== LOGIN CARD ===================== */
+
 form {
     width: 340px;
+    max-width: 90%;
     padding: 40px;
-    margin-top: 300px;
+    margin-top: 200px;
     border-radius: 15px;
     background: #121212;
     color: white;
 
-    /* Blue shadow */
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.6),
-                0 0 40px rgba(0, 191, 255, 0.3);
+    animation: fadeSlide 0.6s ease;
+
+    box-shadow: 0 0 15px rgba(0,191,255,0.6),
+                0 0 40px rgba(0,191,255,0.3);
 
     display: flex;
     flex-direction: column;
@@ -38,12 +71,6 @@ h2 {
     text-align: center;
     margin-bottom: 25px;
     color: #00bfff;
-}
-
-/* Labels (optional if used) */
-label {
-    font-size: 14px;
-    color: #bbb;
 }
 
 /* Inputs */
@@ -60,7 +87,7 @@ input {
     transition: 0.3s;
 }
 
-/* Input focus glow */
+/* Input glow */
 input:focus {
     border: 1px solid #00bfff;
     box-shadow: 0 0 10px #00bfff;
@@ -77,26 +104,26 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 0 10px #00bfff;
+
+    animation: glowPulse 2.5s infinite;
 }
 
-/* Button hover glow */
+/* Hover */
 button:hover {
-    box-shadow: 0 0 20px #00bfff,
-                0 0 40px #00bfff;
     transform: translateY(-2px);
 }
 
-/* Error message */
+/* Error */
 #error {
     margin-top: 15px;
     text-align: center;
     color: #ff4d4d;
     font-size: 14px;
-    min-height: 20px; /* prevents layout jump */
+    min-height: 20px;
 }
 
 /* ===================== NAVBAR ===================== */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -110,11 +137,10 @@ button:hover {
     justify-content: center;
     align-items: center;
 
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.25);
+    box-shadow: 0 0 15px rgba(0,191,255,0.25);
     z-index: 100;
 }
 
-/* Navbar inner container */
 .nav-container {
     width: 90%;
     max-width: 1100px;
@@ -124,21 +150,20 @@ button:hover {
     align-items: center;
 }
 
-/* Welcome text */
 #welcomeText {
     font-size: 18px;
     color: #00bfff;
     font-weight: 500;
 }
 
-/* Logout button */
 #logoutBtn {
     width: 110px;
     padding: 10px;
     font-size: 14px;
 }
 
-/* ===================== STATS CONTAINER ===================== */
+/* ===================== STATS ===================== */
+
 .stats-container {
     display: flex;
     justify-content: space-around;
@@ -146,17 +171,14 @@ button:hover {
     width: 90%;
     max-width: 1000px;
 
-    /* Distance sous navbar ≤ 30px */
-    margin-top: 50px;
-
-    margin-left: auto;
-    margin-right: auto;
-    height: 120px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    gap: 20px;
 }
 
-/* Individual stat box */
+/* Stat box */
 .stat-box {
-    flex: 0 0 45%; /* ~45% width each box */
+    flex: 0 0 45%;
     background: #121212;
     border-radius: 12px;
     border: 1px solid #1e1e1e;
@@ -167,21 +189,200 @@ button:hover {
     justify-content: center;
     align-items: center;
 
-    /* Blue glowing shadow */
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5),
-                0 0 30px rgba(0, 191, 255, 0.25);
+    animation: glowPulse 3s infinite;
 }
 
-/* Stat titles */
 .stat-box h3 {
     font-size: 18px;
     color: #00bfff;
     margin-bottom: 12px;
 }
 
-/* Stat values */
 .stat-box p {
     font-size: 22px;
     font-weight: 600;
     color: white;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+/* Tablets */
+@media (max-width: 900px) {
+
+    .stats-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .stat-box {
+        width: 100%;
+    }
+
+}
+
+/* Phones */
+@media (max-width: 500px) {
+
+    form {
+        padding: 30px;
+        margin-top: 120px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+}
+
+/* Skills chart container */
+/* ===================== SKILLS CHART IMPROVED ===================== */
+
+/* Container for skills chart with vertical scroll */
+#skillsChart {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto 20px auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    background: #121212;
+    border: 1px solid #1e1e1e;
+    border-radius: 12px;
+
+    max-height: 400px; /* set max height */
+    overflow-y: auto;  /* vertical scroll */
+    box-shadow: 0 0 15px rgba(0,191,255,0.3), 0 0 30px rgba(0,191,255,0.15);
+
+    /* Slide/fade animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlide 0.6s ease forwards;
+}
+
+/* Each skill row inside the chart */
+.chart {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-height: 40px;
+
+    /* optional individual fade animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlide 0.6s ease forwards;
+}
+
+/* Stagger fade for multiple skills */
+.chart:nth-child(1) { animation-delay: 0.1s; }
+.chart:nth-child(2) { animation-delay: 0.2s; }
+.chart:nth-child(3) { animation-delay: 0.3s; }
+.chart:nth-child(4) { animation-delay: 0.4s; }
+/* add more nth-child if needed */
+
+/* Skill name above bar */
+.skill-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #00bfff;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+/* Responsive skill name */
+@media (max-width: 600px) {
+    .skill-name {
+        font-size: 12px;
+    }
+}
+
+/* SVG container for bars */
+.chart svg {
+    width: 100%;
+    height: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1e1e1e;
+}
+
+/* Skill bars (rect) with animated fill */
+.chart svg rect {
+    height: 100%;
+    fill: #00bfff;
+    border-radius: 12px;
+    animation: fillBar 1s ease-out forwards;
+}
+
+/* Animation for bars */
+@keyframes fillBar {
+    from { width: 0%; }
+    to { width: var(--bar-width); }
+}
+
+/* Hover effect */
+.chart svg rect:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Smooth vertical scroll for skillsChart */
+#skillsChart {
+    scroll-behavior: smooth;
+}
+
+/* Fade slide keyframes (used for chart divs) */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #skillsChart {
+        max-height: 300px;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .chart svg {
+        height: 20px;
+    }
+}
+
+/* Vertical scrollbar for skillsChart */
+#skillsChart {
+    overflow-y: auto;          /* enable vertical scroll */
+    scrollbar-width: thin;      /* for Firefox */
+    scrollbar-color: #00bfff #1e1e1e; /* thumb color | track color */
+}
+
+/* Chrome, Safari, Edge */
+#skillsChart::-webkit-scrollbar {
+    width: 8px;                 /* width of scrollbar */
+}
+
+#skillsChart::-webkit-scrollbar-track {
+    background: #1e1e1e;        /* track color */
+    border-radius: 4px;
+}
+
+#skillsChart::-webkit-scrollbar-thumb {
+    background-color: #00bfff;  /* thumb color */
+    border-radius: 4px;         /* rounded corners */
+    border: 2px solid #1e1e1e; /* optional padding around thumb */
+}
+
+#skillsChart::-webkit-scrollbar-thumb:hover {
+    background-color: #00e0ff;  /* brighter on hover */
 }
