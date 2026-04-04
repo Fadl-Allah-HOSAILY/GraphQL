@@ -111,7 +111,7 @@ fetch("https://learn.zone01oujda.ma/api/graphql-engine/v1/graphql", {
       // Wrap skill name in a span
       const skillName = document.createElement("span")
       skillName.classList.add("skill-name")
-      skillName.textContent = skill
+      skillName.textContent = skill.replace("skill_","")
       skillDiv.appendChild(skillName)
 
       const svg = document.createElementNS(svgNS, "svg");
