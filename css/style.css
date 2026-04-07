@@ -183,14 +183,11 @@ button:hover {
     background: #d2c1a0;
     border: 1px solid #43a047;
     border-radius: 12px;
-    max-height: 400px;
-    overflow-y: auto;
+    height: auto;            /* prend la hauteur nécessaire */
     opacity: 0;
     transform: translateY(20px);
     animation: fadeSlide 0.6s ease forwards;
     scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: #43a047 #fff2db;
 }
 
 .chart {
@@ -218,7 +215,7 @@ button:hover {
 
 .chart svg {
     width: 100%;
-    height: 25px;
+    height: 10px;
     border-radius: 12px;
     overflow: hidden;
     background: #fff2db;
@@ -235,19 +232,9 @@ button:hover {
 
 @media (max-width: 600px) {
     .skill-name { font-size: 12px; }
-    #skillsChart { max-height: 300px; padding: 10px; gap: 10px; }
+    #skillsChart { padding: 10px; gap: 10px; } /* supprime max-height et scroll */
     .chart svg { height: 20px; }
 }
-
-#skillsChart::-webkit-scrollbar { width: 8px; }
-#skillsChart::-webkit-scrollbar-track { background: #1e1e1e; border-radius: 4px; }
-#skillsChart::-webkit-scrollbar-thumb {
-    background-color: #43a047;
-    border-radius: 4px;
-    border: 2px solid #388e3c;
-}
-#skillsChart::-webkit-scrollbar-thumb:hover { background-color: #388e3c; }
-
 /* ===================== AUDIT DONUT ===================== */
 #auditsChart {
     width: 90%;
