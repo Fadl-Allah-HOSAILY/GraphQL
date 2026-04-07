@@ -9,7 +9,7 @@
 /* Body background */
 body {
     min-height: 100vh;
-    background: #0d0d0d;
+    background: #fff2db;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,27 +24,13 @@ body {
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Blue glow pulse */
-@keyframes glowPulse {
-    0% {
-        box-shadow: 0 0 10px rgba(0,191,255,0.4),
-                    0 0 20px rgba(0,191,255,0.2);
-    }
-    50% {
-        box-shadow: 0 0 25px rgba(0,191,255,0.7),
-                    0 0 45px rgba(0,191,255,0.4);
-    }
-    100% {
-        box-shadow: 0 0 10px rgba(0,191,255,0.4),
-                    0 0 20px rgba(0,191,255,0.2);
-    }
-}
 
 /* ===================== LOGIN CARD ===================== */
 
@@ -54,14 +40,8 @@ form {
     padding: 40px;
     margin-top: 200px;
     border-radius: 15px;
-    background: #121212;
-    color: white;
-
-    animation: fadeSlide 0.6s ease;
-
-    box-shadow: 0 0 15px rgba(0,191,255,0.6),
-                0 0 40px rgba(0,191,255,0.3);
-
+    background: #d2c1a0;
+    color: black;
     display: flex;
     flex-direction: column;
 }
@@ -70,7 +50,7 @@ form {
 h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #00bfff;
+    color: #388e3c;
 }
 
 /* Inputs */
@@ -80,17 +60,17 @@ input {
     margin-top: 6px;
     margin-bottom: 18px;
     border-radius: 8px;
-    border: 1px solid #1e1e1e;
-    background: #1e1e1e;
-    color: white;
+    border: 1px solid #faf6ef;
+    background: #faf6ef;
+    color: black;
     outline: none;
     transition: 0.3s;
 }
 
 /* Input glow */
 input:focus {
-    border: 1px solid #00bfff;
-    box-shadow: 0 0 10px #00bfff;
+    border: 1px solid #43a047;
+    box-shadow: 0 0 10px #43a047;
 }
 
 /* Button */
@@ -99,7 +79,7 @@ button {
     padding: 12px;
     border: none;
     border-radius: 8px;
-    background: #00bfff;
+    background: #43a047;
     color: #0d0d0d;
     font-size: 16px;
     cursor: pointer;
@@ -111,6 +91,7 @@ button {
 /* Hover */
 button:hover {
     transform: translateY(-2px);
+    background-color: #388e3c;
 }
 
 /* Error */
@@ -118,7 +99,7 @@ button:hover {
     margin-top: 15px;
     text-align: center;
     color: #ff4d4d;
-    font-size: 14px;
+    font-size: 18px;
     min-height: 20px;
 }
 
@@ -130,29 +111,25 @@ button:hover {
     left: 0;
     width: 100%;
     height: 70px;
-    background: #121212;
-    border-bottom: 1px solid #1e1e1e;
-
+    background: #d2c1a0;
+    border-bottom: 1px solid #43a047;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    box-shadow: 0 0 15px rgba(0,191,255,0.25);
     z-index: 100;
 }
 
 .nav-container {
     width: 90%;
     max-width: 1100px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 #welcomeText {
-    font-size: 18px;
-    color: #00bfff;
+    font-size: 22px;
+    color: black;
     font-weight: 500;
 }
 
@@ -179,9 +156,9 @@ button:hover {
 /* Stat box */
 .stat-box {
     flex: 0 0 45%;
-    background: #121212;
+    background: #d2c1a0;
     border-radius: 12px;
-    border: 1px solid #1e1e1e;
+    border: 1px solid #43a047;
     padding: 20px;
 
     display: flex;
@@ -194,14 +171,14 @@ button:hover {
 
 .stat-box h3 {
     font-size: 18px;
-    color: #00bfff;
+    color: black;
     margin-bottom: 12px;
 }
 
 .stat-box p {
     font-size: 22px;
     font-weight: 600;
-    color: white;
+    color: #43a047;
 }
 
 /* ===================== RESPONSIVE ===================== */
@@ -250,16 +227,11 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 15px;
-
-    background: #121212;
-    border: 1px solid #1e1e1e;
+    background: #d2c1a0;
+    border: 1px solid #43a047;
     border-radius: 12px;
-
-    max-height: 400px; /* set max height */
-    overflow-y: auto;  /* vertical scroll */
-    box-shadow: 0 0 15px rgba(0,191,255,0.3), 0 0 30px rgba(0,191,255,0.15);
-
-    /* Slide/fade animation */
+    max-height: 400px;
+    overflow-y: auto;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeSlide 0.6s ease forwards;
@@ -271,25 +243,33 @@ button:hover {
     flex-direction: column;
     gap: 5px;
     min-height: 40px;
-
-    /* optional individual fade animation */
     opacity: 0;
     transform: translateY(20px);
     animation: fadeSlide 0.6s ease forwards;
 }
 
 /* Stagger fade for multiple skills */
-.chart:nth-child(1) { animation-delay: 0.1s; }
-.chart:nth-child(2) { animation-delay: 0.2s; }
-.chart:nth-child(3) { animation-delay: 0.3s; }
-.chart:nth-child(4) { animation-delay: 0.4s; }
-/* add more nth-child if needed */
+.chart:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.chart:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.chart:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.chart:nth-child(4) {
+    animation-delay: 0.4s;
+}
 
 /* Skill name above bar */
 .skill-name {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
-    color: #00bfff;
+    color: black;
     margin-bottom: 5px;
     display: inline-block;
 }
@@ -307,21 +287,26 @@ button:hover {
     height: 25px;
     border-radius: 12px;
     overflow: hidden;
-    background: #1e1e1e;
+    background: #fff2db;
 }
 
 /* Skill bars (rect) with animated fill */
 .chart svg rect {
     height: 100%;
-    fill: #00bfff;
+    fill: #43a047;
     border-radius: 12px;
     animation: fillBar 1s ease-out forwards;
 }
 
 /* Animation for bars */
 @keyframes fillBar {
-    from { width: 0%; }
-    to { width: var(--bar-width); }
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: var(--bar-width);
+    }
 }
 
 /* Hover effect */
@@ -341,6 +326,7 @@ button:hover {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -362,27 +348,119 @@ button:hover {
 
 /* Vertical scrollbar for skillsChart */
 #skillsChart {
-    overflow-y: auto;          /* enable vertical scroll */
-    scrollbar-width: thin;      /* for Firefox */
-    scrollbar-color: #00bfff #1e1e1e; /* thumb color | track color */
+    overflow-y: auto;
+    /* enable vertical scroll */
+    scrollbar-width: thin;
+    /* for Firefox */
+    scrollbar-color: #43a047 #fff2db;
+    /* thumb color | track color */
 }
 
 /* Chrome, Safari, Edge */
 #skillsChart::-webkit-scrollbar {
-    width: 8px;                 /* width of scrollbar */
+    width: 8px;
+    /* width of scrollbar */
 }
 
 #skillsChart::-webkit-scrollbar-track {
-    background: #1e1e1e;        /* track color */
+    background: #1e1e1e;
+    /* track color */
     border-radius: 4px;
 }
 
 #skillsChart::-webkit-scrollbar-thumb {
-    background-color: #00bfff;  /* thumb color */
-    border-radius: 4px;         /* rounded corners */
-    border: 2px solid #1e1e1e; /* optional padding around thumb */
+    background-color: #43a047;
+    /* thumb color */
+    border-radius: 4px;
+    /* rounded corners */
+    border: 2px solid #388e3c;
+    /* optional padding around thumb */
 }
 
 #skillsChart::-webkit-scrollbar-thumb:hover {
-    background-color: #00e0ff;  /* brighter on hover */
+    background-color: #388e3c;
+    /* brighter on hover */
+}
+
+/* AUDIT DONUT CHART */
+#auditsChart {
+    max-width: 1000px;
+    margin: 40px auto 20px auto;
+    position: relative; /* important pour le texte absolu */
+    width: 90%;
+    height: auto;
+    background-color: #d2c1a0;
+    padding: 15px;
+    border: 1px solid #43a047;
+    border-radius: 12px;
+    max-height: 400px;
+}
+
+/* Conteneur du SVG pour le centrer avec le texte */
+#auditsChart .donut-container {
+    position: relative;  /* pour que #auditText soit centré par rapport au SVG */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SVG inside auditsChart */
+#auditsChart svg {
+    transform: rotate(-90deg);
+}
+
+/* Cercles du donut */
+#auditsChart circle {
+    fill: none;
+    stroke-width: 20;
+    stroke-linecap: round;
+}
+
+/* Texte au centre */
+#auditsChart #auditText {
+    position: absolute; /* centré par rapport au parent .donut-container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #388e3c;
+    font-size: 24px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Conteneur des infos audits */
+#auditInfo {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* espace entre les cards */
+    margin-top: 20px;
+}
+
+/* Chaque card individuelle */
+.audit-card {
+    width: 230px;
+    background-color: #fff2db; /* même beige que auditsChart */
+    border: 1px solid #43a047; /* bordure verte */
+    border-radius: 12px;
+    padding: 15px 25px;
+    margin: 30px 10px 30px 10px;
+    min-width: 150px;
+    text-align: center;
+    color: #388e3c;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Effet hover */
+.audit-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Texte à l'intérieur */
+.audit-card span {
+    display: block;
+    font-size: 18px;
+    margin-top: 5px;
 }

@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Profile Page</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<!-- Navbar -->
- <nav class="navbar">
-  <div class="nav-container">
-    <div id="welcomeText">Welcome</div>
-    <button id="logoutBtn">Logout</button>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div id="welcomeText">Welcome</div>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Stats XP / Level -->
+  <div class="stats-container">
+    <div class="stat-box">
+      <h3>Total XP</h3>
+      <p id="totalXP"></p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Current Level</h3>
+      <p id="currentLevel"></p>
+    </div>
   </div>
-</nav>
 
-<div class="stats-container">
-
-  <div class="stat-box">
-    <h3>Total XP</h3>
-    <p id="totalXP"></p>
+  <!-- Skills Chart -->
+  <div id="skillsChart">
+    <h3>Your progress:</h3>
   </div>
 
-  <div class="stat-box">
-    <h3>Current Level</h3>
-    <p id="currentLevel"></p>
-  </div>  
-</div>
+  <!-- Audit Donut Chart -->
+  <div id="auditsChart">
+    <h3>Your ratio:</h3>
+    <div class="donut-container">
+      <svg width="200" height="200">
+        <circle id="bg" r="90" cx="100" cy="100" stroke="#ccc" fill="none" stroke-width="15" />
+        <circle id="success" r="90" cx="100" cy="100" stroke="#22c55e" fill="none" stroke-width="15" />
+        <circle id="failed" r="90" cx="100" cy="100" stroke="#ef4444" fill="none" stroke-width="15" />
+      </svg>
+      <div id="auditText"></div>
+    </div>
+    <div id="auditInfo">
+      <div class="audit-card" id="fail"></div>
+      <div class="audit-card" id="valided"></div>
+      <div class="audit-card" id="totalUp"></div>
+      <div class="audit-card" id="totalDown"></div>
+    </div>
+  </div>
 
-<div id="skillsChart"></div>
+  <div id="error"></div>
 
-<div id="error"></div>
-
-<script src="js/profile.js"></script>
+  <script type="module" src="js/profile.js"></script>
 </body>
+
 </html>
