@@ -1,4 +1,4 @@
-/* Reset global */
+/* ===================== RESET GLOBAL ===================== */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Body background */
+/* ===================== BODY ===================== */
 body {
     min-height: 100vh;
     background: #fff2db;
@@ -17,23 +17,17 @@ body {
 }
 
 /* ===================== ANIMATIONS ===================== */
-
-/* Login card appears smoothly */
 @keyframes fadeSlide {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fillBar {
+    from { width: 0%; }
+    to   { width: var(--bar-width); }
+}
 
 /* ===================== LOGIN CARD ===================== */
-
 form {
     width: 340px;
     max-width: 90%;
@@ -46,19 +40,16 @@ form {
     flex-direction: column;
 }
 
-/* Title */
 h2 {
     text-align: center;
     margin-bottom: 25px;
     color: #388e3c;
 }
 
-/* Inputs */
 input {
     width: 100%;
     padding: 12px;
-    margin-top: 6px;
-    margin-bottom: 18px;
+    margin: 6px 0 18px 0;
     border-radius: 8px;
     border: 1px solid #faf6ef;
     background: #faf6ef;
@@ -67,13 +58,11 @@ input {
     transition: 0.3s;
 }
 
-/* Input glow */
 input:focus {
     border: 1px solid #43a047;
     box-shadow: 0 0 10px #43a047;
 }
 
-/* Button */
 button {
     width: 100%;
     padding: 12px;
@@ -84,31 +73,26 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
-
     animation: glowPulse 2.5s infinite;
 }
 
-/* Hover */
 button:hover {
     transform: translateY(-2px);
     background-color: #388e3c;
 }
 
-/* Error */
 #error {
     margin-top: 15px;
     text-align: center;
-    color: #ff4d4d;
+    color: #d93f3f;
     font-size: 18px;
     min-height: 20px;
 }
 
 /* ===================== NAVBAR ===================== */
-
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
     height: 70px;
     background: #d2c1a0;
@@ -140,32 +124,26 @@ button:hover {
 }
 
 /* ===================== STATS ===================== */
-
 .stats-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 90%;
     max-width: 1000px;
-
-    margin-top: 70px;
-    margin-bottom: 50px;
+    margin: 70px 0 50px 0;
     gap: 20px;
 }
 
-/* Stat box */
 .stat-box {
     flex: 0 0 45%;
     background: #d2c1a0;
     border-radius: 12px;
     border: 1px solid #43a047;
     padding: 20px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     animation: glowPulse 3s infinite;
 }
 
@@ -182,43 +160,18 @@ button:hover {
 }
 
 /* ===================== RESPONSIVE ===================== */
-
-/* Tablets */
 @media (max-width: 900px) {
-
-    .stats-container {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .stat-box {
-        width: 100%;
-    }
-
+    .stats-container { flex-direction: column; height: auto; }
+    .stat-box { width: 100%; }
 }
 
-/* Phones */
 @media (max-width: 500px) {
-
-    form {
-        padding: 30px;
-        margin-top: 120px;
-    }
-
-    h2 {
-        font-size: 22px;
-    }
-
-    button {
-        font-size: 14px;
-    }
-
+    form { padding: 30px; margin-top: 120px; }
+    h2 { font-size: 22px; }
+    button { font-size: 14px; }
 }
 
-/* Skills chart container */
-/* ===================== SKILLS CHART IMPROVED ===================== */
-
-/* Container for skills chart with vertical scroll */
+/* ===================== SKILLS CHART ===================== */
 #skillsChart {
     width: 90%;
     max-width: 1000px;
@@ -235,9 +188,11 @@ button:hover {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeSlide 0.6s ease forwards;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #43a047 #fff2db;
 }
 
-/* Each skill row inside the chart */
 .chart {
     display: flex;
     flex-direction: column;
@@ -248,24 +203,11 @@ button:hover {
     animation: fadeSlide 0.6s ease forwards;
 }
 
-/* Stagger fade for multiple skills */
-.chart:nth-child(1) {
-    animation-delay: 0.1s;
-}
+.chart:nth-child(1) { animation-delay: 0.1s; }
+.chart:nth-child(2) { animation-delay: 0.2s; }
+.chart:nth-child(3) { animation-delay: 0.3s; }
+.chart:nth-child(4) { animation-delay: 0.4s; }
 
-.chart:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.chart:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.chart:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-/* Skill name above bar */
 .skill-name {
     font-size: 18px;
     font-weight: 500;
@@ -274,14 +216,6 @@ button:hover {
     display: inline-block;
 }
 
-/* Responsive skill name */
-@media (max-width: 600px) {
-    .skill-name {
-        font-size: 12px;
-    }
-}
-
-/* SVG container for bars */
 .chart svg {
     width: 100%;
     height: 25px;
@@ -290,7 +224,6 @@ button:hover {
     background: #fff2db;
 }
 
-/* Skill bars (rect) with animated fill */
 .chart svg rect {
     height: 100%;
     fill: #43a047;
@@ -298,129 +231,54 @@ button:hover {
     animation: fillBar 1s ease-out forwards;
 }
 
-/* Animation for bars */
-@keyframes fillBar {
-    from {
-        width: 0%;
-    }
+.chart svg rect:hover { opacity: 0.8; cursor: pointer; }
 
-    to {
-        width: var(--bar-width);
-    }
-}
-
-/* Hover effect */
-.chart svg rect:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-/* Smooth vertical scroll for skillsChart */
-#skillsChart {
-    scroll-behavior: smooth;
-}
-
-/* Fade slide keyframes (used for chart divs) */
-@keyframes fadeSlide {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive adjustments */
 @media (max-width: 600px) {
-    #skillsChart {
-        max-height: 300px;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .chart svg {
-        height: 20px;
-    }
+    .skill-name { font-size: 12px; }
+    #skillsChart { max-height: 300px; padding: 10px; gap: 10px; }
+    .chart svg { height: 20px; }
 }
 
-/* Vertical scrollbar for skillsChart */
-#skillsChart {
-    overflow-y: auto;
-    /* enable vertical scroll */
-    scrollbar-width: thin;
-    /* for Firefox */
-    scrollbar-color: #43a047 #fff2db;
-    /* thumb color | track color */
-}
-
-/* Chrome, Safari, Edge */
-#skillsChart::-webkit-scrollbar {
-    width: 8px;
-    /* width of scrollbar */
-}
-
-#skillsChart::-webkit-scrollbar-track {
-    background: #1e1e1e;
-    /* track color */
-    border-radius: 4px;
-}
-
+#skillsChart::-webkit-scrollbar { width: 8px; }
+#skillsChart::-webkit-scrollbar-track { background: #1e1e1e; border-radius: 4px; }
 #skillsChart::-webkit-scrollbar-thumb {
     background-color: #43a047;
-    /* thumb color */
     border-radius: 4px;
-    /* rounded corners */
     border: 2px solid #388e3c;
-    /* optional padding around thumb */
 }
+#skillsChart::-webkit-scrollbar-thumb:hover { background-color: #388e3c; }
 
-#skillsChart::-webkit-scrollbar-thumb:hover {
-    background-color: #388e3c;
-    /* brighter on hover */
-}
-
-/* AUDIT DONUT CHART */
+/* ===================== AUDIT DONUT ===================== */
 #auditsChart {
+    width: 90%;
     max-width: 1000px;
     margin: 40px auto 20px auto;
-    position: relative; /* important pour le texte absolu */
-    width: 90%;
-    height: auto;
-    background-color: #d2c1a0;
     padding: 15px;
+    background-color: #d2c1a0;
     border: 1px solid #43a047;
     border-radius: 12px;
     max-height: 400px;
+    position: relative;
 }
 
-/* Conteneur du SVG pour le centrer avec le texte */
 #auditsChart .donut-container {
-    position: relative;  /* pour que #auditText soit centré par rapport au SVG */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* SVG inside auditsChart */
-#auditsChart svg {
-    transform: rotate(-90deg);
-}
+#auditsChart svg { transform: rotate(-90deg); }
 
-/* Cercles du donut */
 #auditsChart circle {
     fill: none;
     stroke-width: 20;
     stroke-linecap: round;
 }
 
-/* Texte au centre */
 #auditsChart #auditText {
-    position: absolute; /* centré par rapport au parent .donut-container */
-    top: 50%;
-    left: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     color: #388e3c;
     font-size: 24px;
@@ -428,23 +286,21 @@ button:hover {
     pointer-events: none;
 }
 
-/* Conteneur des infos audits */
 #auditInfo {
     display: flex;
     justify-content: center;
-    gap: 20px; /* espace entre les cards */
+    gap: 20px;
     margin-top: 20px;
 }
 
-/* Chaque card individuelle */
 .audit-card {
     width: 230px;
-    background-color: #fff2db; /* même beige que auditsChart */
-    border: 1px solid #43a047; /* bordure verte */
+    min-width: 150px;
+    background-color: #fff2db;
+    border: 1px solid #43a047;
     border-radius: 12px;
     padding: 15px 25px;
-    margin: 30px 10px 30px 10px;
-    min-width: 150px;
+    margin: 30px 10px;
     text-align: center;
     color: #388e3c;
     font-weight: bold;
@@ -452,15 +308,57 @@ button:hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Effet hover */
 .audit-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* Texte à l'intérieur */
-.audit-card span {
-    display: block;
-    font-size: 18px;
-    margin-top: 5px;
+.audit-card span { display: block; font-size: 18px; margin-top: 5px; }
+
+/* ===================== AUDIT CHART + CARD RESPONSIVE ===================== */
+
+/* Tablettes et petits écrans */
+@media (max-width: 900px) {
+    #auditsChart {
+        width: 95%;          /* occupe presque toute la largeur de l'écran */
+        padding: 20px;       /* plus de padding pour contenir les cartes */
+        max-height: none;    /* laisse le conteneur s’agrandir */
+    }
+
+    #auditInfo {
+        flex-direction: column; /* empile les cards */
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .audit-card {
+        width: 90%;             /* presque toute la largeur du parent */
+        max-width: 350px;       /* limite pour grands écrans */
+        margin: 10px 0;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+/* Téléphones */
+@media (max-width: 500px) {
+    #auditsChart {
+        width: 98%;
+        padding: 15px;
+    }
+
+    #auditInfo {
+        gap: 10px;
+    }
+
+    .audit-card {
+        width: 95%;             /* occupe presque toute la largeur du conteneur */
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    #auditsChart #auditText {
+        font-size: 20px;        /* texte plus petit dans le donut */
+    }
 }
