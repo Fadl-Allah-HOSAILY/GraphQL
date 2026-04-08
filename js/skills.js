@@ -26,7 +26,6 @@ export function renderSkills(skills) {
         rect.setAttribute("y", 0);
         rect.setAttribute("height", "100%");
         rect.setAttribute("width", `${skillsType[skill]}%`);
-        rect.setAttribute("fill", "#00bfff");
         rect.setAttribute("rx", 4);
         rect.style.setProperty("--bar-width", `${skillsType[skill]}%`);
 
